@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-05-23T09:12:11" hostname="5CD2462TN0" time="0.206">
+	<properties/>
+	<testcase name="MainTest1" classname="MainTest" time="0.009"/>
+	<testcase name="MainTest2" classname="MainTest" time="0.002"/>
+	<testcase name="MainTest3" classname="MainTest" time="0.001"/>
+</testsuite>
