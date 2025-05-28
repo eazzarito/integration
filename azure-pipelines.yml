@@ -21,7 +21,7 @@ stages:
     jobs:
       - job: CallDevopsApi
         steps:
-          - script:
+          - script: |
               echo "Calling ThingWorx devopsApi..."
               echo "URL = $THINGWORX_URL"
 
