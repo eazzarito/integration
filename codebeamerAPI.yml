@@ -28,7 +28,7 @@ stages:
               curl -X GET "$CODEBEAMER_URL" \
               -H "Content-Type:application/json" \
               -H "Accept:application/json" \
-              -H "Authorization:Basic QWRtaW5pc3RyYXRvcjpjYmFkbWlu" \
+              -H "Authorization:Basic RWxpYXp6YXJpdG86QHhibXdCZk5yOVplVQ==" \
             env:
               THINGWORX_URL: $(CODEBEAMER_URL)
 
