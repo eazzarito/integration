@@ -27,6 +27,8 @@ stages:
 
               JSON_BODY='{"body":"{\"action\":\"deploy\",\"target\":\"test\"}"}'
 
+              echo "JSON_BODY = $JSON_BODY"
+
               curl -X POST "$THINGWORX_URL" \
               -H "Content-Type:application/json" \
               -H "Accept:application/json" \
