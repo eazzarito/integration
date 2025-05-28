@@ -1,0 +1,41 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: secrets
+
+stages:
+  - stage: CallThingworx
+    jobs:
+      - job: CallDevopsApi
+        steps:
+          - script: |
+              echo "Calling ThingWorx devopsApi..."
+              echo "URL = $THINGWORX_URL"
+
+              JSON_BODY='{"body":"pippo"}'
+
+              echo "JSON_BODY = $JSON_BODY"
+
+              curl -X POST "$THINGWORX_URL" \
+              -H "Content-Type:application/json" \
+              -H "Accept:application/json" \
+              -H "appKey:$APPKEY" \
+              -H "x-thingworx-session:true" \
+              -d "$JSON_BODY"
+            env:
+              THINGWORX_URL: $(THINGWORX_URL)
+              APPKEY: $(APPKEY)
+
