@@ -24,7 +24,7 @@ stages:
           - script:
               echo "Calling ThingWorx devopsApi..."
 
-              JSON_BODY='{"body":\'{\"action\":\"deploy\",\"target\":\"test\"}\'}'
+              JSON_BODY='{"body":"{\"action\":\"deploy\",\"target\":\"test\"}"}'
 
               curl -X POST "$(THINGWORX_URL)" \
               -H "Content-Type:application/json" \
