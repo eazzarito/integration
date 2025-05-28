@@ -25,7 +25,7 @@ stages:
               echo "Calling ThingWorx devopsApi..."
               echo "URL = $THINGWORX_URL"
 
-              JSON_BODY='{"body":"{\"action\":\"deploy\",\"target\":\"test\"}"}'
+              JSON_BODY='{"body":"pippo"}'
 
               echo "JSON_BODY = $JSON_BODY"
 
