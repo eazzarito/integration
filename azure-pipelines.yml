@@ -23,13 +23,14 @@ stages:
         steps:
           - script:
               echo "Calling ThingWorx devopsApi..."
+              echo "URL = $THINGWORX_URL"
 
               JSON_BODY='{"body":"{\"action\":\"deploy\",\"target\":\"test\"}"}'
 
-              curl -X POST "$(THINGWORX_URL)" \
+              curl -X POST "$THINGWORX_URL" \
               -H "Content-Type:application/json" \
               -H "Accept:application/json" \
-              -H "appKey:$(APPKEY)" \
+              -H "appKey:$APPKEY" \
               -H "x-thingworx-session:true" \
               -d "$JSON_BODY"
             env:
