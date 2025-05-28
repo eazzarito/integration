@@ -26,9 +26,12 @@ stages:
 
               JSON_BODY='{"body":\'{\"action\":\"deploy\",\"target\":\"test\"}\'}'
 
-              curl -X POST "$(twx_url)" \
+              curl -X POST "$(THINGWORX_URL)" \
               -H "Content-Type:application/json" \
               -H "Accept:application/json" \
-              -H "appKey:$appkey" \
+              -H "appKey:$(APPKEY)" \
               -H "x-thingworx-session:true" \
               -d "$JSON_BODY"
+            env:
+              THINGWORX_URL: $(THINGWORX_URL)
+              APPKEY: $(APPKEY)
