@@ -17,25 +17,18 @@ variables:
   - group: secrets
 
 stages:
-  - stage: CallThingworx
+  - stage: CallCodebeamer
     jobs:
       - job: CallDevopsApi
         steps:
           - script: |
-              echo "Calling ThingWorx devopsApi..."
-              echo "URL = $THINGWORX_URL"
+              echo "Calling Codebeamer devopsApi..."
+              echo "URL = $CODEBEAMER_URL"
 
-              JSON_BODY='{"body":"pippo"}'
-
-              echo "JSON_BODY = $JSON_BODY"
-
-              curl -X POST "$THINGWORX_URL" \
+              curl -X GET "$CODEBEAMER_URL" \
               -H "Content-Type:application/json" \
               -H "Accept:application/json" \
-              -H "appKey:$APPKEY" \
-              -H "x-thingworx-session:true" \
-              -d "$JSON_BODY"
+              -H "Authorization:Basic QWRtaW5pc3RyYXRvcjpjYmFkbWlu" \
             env:
-              THINGWORX_URL: $(THINGWORX_URL)
-              APPKEY: $(APPKEY)
+              THINGWORX_URL: $(CODEBEAMER_URL)
 
