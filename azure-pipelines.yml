@@ -23,18 +23,19 @@ stages:
         steps:
           - script: |
               echo "Calling ThingWorx devopsApi..."
-              echo "URL = $THINGWORX_LUTECH"
+              echo "URL = $THINGWORX_URL"
+              echo "PROGETTO = $(System.TeamProject)"
 
-              JSON_BODY='{"body":"pippo"}'
+              JSON_BODY='{"body":$(System.TeamProject)}'
 
               echo "JSON_BODY = $JSON_BODY"
 
-              curl -X POST "$THINGWORX_LUTECH" \
+              curl -X POST "$THINGWORX_URL" \
               -H "Content-Type:application/json" \
               -H "Accept:application/json" \
-              -H "appKey:$APPKEY_LUTECH" \
+              -H "appKey:$APPKEY" \
               -H "x-thingworx-session:true" \
               -d "$JSON_BODY"
             env:
-              THINGWORX_URL: $(THINGWORX_LUTECH)
-              APPKEY: $(APPKEY_LUTECH)
+              THINGWORX_URL: $(THINGWORX_URL)
+              APPKEY: $(APPKEY)
