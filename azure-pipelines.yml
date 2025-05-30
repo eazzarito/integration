@@ -26,7 +26,7 @@ stages:
               echo "URL = $THINGWORX_URL"
               echo "PROGETTO = $(System.TeamProject)"
 
-              JSON_BODY='{"body":$(System.TeamProject)}'
+              JSON_BODY='{"body":"' + $(System.TeamProject)+ '"}'
 
               echo "JSON_BODY = $JSON_BODY"
 
